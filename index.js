@@ -13,11 +13,10 @@ mongoose.connect(uriDbConnection,
 .catch(err => console.log("Error on connecting to database: ", err));
 
 
-app.set(express.json());
+app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Responding good!');
-});
+const funcionariosRoutes = require('./route/funcionarios');
+app.use("/funcionarios", funcionariosRoutes);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
