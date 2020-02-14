@@ -15,6 +15,9 @@ app.use(express.json());
 
 const funcionariosRoutes = require('./route/funcionarios');
 app.use("/funcionarios", funcionariosRoutes);
+const clientesRoutes = require('./route/clientes');
+app.use("/clientes", clientesRoutes);
+
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
