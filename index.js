@@ -3,9 +3,7 @@ const app = express();
 const config = require('config');
 const mongoose = require('mongoose');
 
-const uriDbConnection = `mongodb+srv://${config.get('dbusername')}:
-${config.get('dbpassword')}@cluster0-mcqrm.mongodb.net/test?retryWrites
-=true&w=majority`;
+const uriDbConnection = 'mongodb://localhost:27017/cclientesdb'
 
 mongoose.connect(uriDbConnection, 
     {useNewUrlParser: true, useUnifiedTopology: true})
