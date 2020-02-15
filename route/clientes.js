@@ -1,7 +1,8 @@
 const routes = require('express').Router();
+const auth = require('../middleware/auth');
 const { Cliente, schema } = require('../model/cliente');
 
-routes.get('/', async (req, res) => {
+routes.get('/', auth, async (req, res) => {
     await Cliente.find({},(err, results) => {
         if(err) {
             console.log("Error getting cliente: ", err);
@@ -12,7 +13,7 @@ routes.get('/', async (req, res) => {
     }) 
 });
 
-routes.get('/:id', async (req, res) => {
+routes.get('/:id', auth, async (req, res) => {
     const id = req.params.id;
 
     await Cliente.findById(id, (err, result) => {
@@ -25,7 +26,7 @@ routes.get('/:id', async (req, res) => {
     })
 });
 
-routes.post('/', async(req, res) => {
+routes.post('/', auth, async(req, res) => {
     const payload = req.body;
     const valid = schema.validate(payload);
 
@@ -43,7 +44,7 @@ routes.post('/', async(req, res) => {
     }
 })
 
-routes.put('/:id', async(req, res) =>{
+routes.put('/:id', auth, async(req, res) =>{
     const id = req.params.id;
     const payload = req.body;
 
@@ -58,7 +59,7 @@ routes.put('/:id', async(req, res) =>{
 
 })
 
-routes.delete('/:id', async(req, res) => {
+routes.delete('/:id', auth, async(req, res) => {
     const id = req.params.id;
 
     try{
