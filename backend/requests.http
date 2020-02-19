@@ -1,0 +1,62 @@
+POST http://localhost:3000/funcionarios HTTP/1.1
+Content-Type: application/json
+
+{
+    "nome": "Yoga de Cisne",
+    "email": "podediamante@zodiac.com",
+    "password": "betterpass"
+}
+
+###
+
+GET http://localhost:3000/funcionarios HTTP/1.1
+
+x-auth-token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1ODE2OTk5OTR9.lHk2BqnGjP6kCeOyPZ9-17FxJWE_xt6vaa3fSGL-6Cc"
+
+{
+    "nome": "Yoga de Cisne",
+    "email": "podediamante@zodiac.com",
+    "password": "betterpass"
+}
+
+###
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1ODE2OTk5OTR9.lHk2BqnGjP6kCeOyPZ9-17FxJWE_xt6vaa3fSGL-6Cc
+PUT http://localhost:3000/funcionarios/5e44aafdedf1ed0453e99646 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nome": "Saint Seiya"
+}
+
+###
+DELETE http://localhost:3000/funcionarios/5e45db724fe3c21d51bf0e9b HTTP/1.1
+
+### - CLIENTES ################################
+
+POST http://localhost:3000/clientes HTTP/1.1
+Content-Type: application/json
+
+{
+    "nome": "Camus de Aquario",
+    "email": "tutubarao@sendmail.com",
+    "telefone": "11-38388383",
+    "endereço": "Rua do Zodiaco, Nº 36 - Roma"
+}
+
+###
+
+GET http://localhost:3000/clientes HTTP/1.1
+
+
+###
+
+PUT http://localhost:3000/clientes/5e45ec183859192b11b0c4ae HTTP/1.1
+Content-Type: application/json
+
+{
+    "endereço": "Rua Grecia Antiga, Nº 254 - Grecia"
+}
+
+###
+DELETE http://localhost:3000/clientes/5e45ece53859192b11b0c4af HTTP/1.1
+
