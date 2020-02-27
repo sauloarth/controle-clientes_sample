@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const config = require('config');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const uriDbConnection = 'mongodb://localhost:27017/cclientesdb'
 
@@ -12,6 +12,7 @@ mongoose.connect(uriDbConnection,
 
 
 app.use(express.json());
+app.use(cors({origin:'http://localhost:3001'}));
 
 const funcionariosRoutes = require('./route/funcionarios');
 app.use("/funcionarios", funcionariosRoutes);
