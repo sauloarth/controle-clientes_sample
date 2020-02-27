@@ -4,6 +4,7 @@ const logoff = require('../middleware/logoff');
 const argon2 = require('argon2');
 const routes = require('express').Router();
 const config = require('config');
+
 const { Funcionario, schema } = require('../model/funcionario');
 
 routes.get('/info', auth, async (req, res) => {
@@ -22,8 +23,8 @@ routes.get('/info', auth, async (req, res) => {
 
 });
 
-routes.get('/signin', signin, async (req, res) => {    
-    return res.send(`Funcionário ${res.funcionario.nome} realizou login com sucesso.`);
+routes.post('/signin', signin, async (req, res) => {  
+    return res.send(res.getHeader('Authorization'));
 
 });
 
@@ -59,9 +60,7 @@ routes.post('/signup', async(req, res) => {
 })
 
 routes.get('/logoff', logoff, async (req, res) => {   
-
     return res.send('Logoff realizado com sucesso.');
-
 });
 
 
